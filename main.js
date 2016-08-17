@@ -4,6 +4,7 @@ require('./assets/css/style.css');
 require('weui');
 require('vux/dist/vux.css');
 import './assets/js/jquery-2.0.3.js'
+import './assets/js/jquery.min.js'
 import '../node_modules/bootstrap/dist/js/bootstrap.js'
 import VueValidator from 'vue-validator'
 import Vue from 'vue'

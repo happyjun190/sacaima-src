@@ -7,7 +7,7 @@
           <div class="up">
            <a href="javascript:history.go(-1);">
             <img src="../../assets/images/left_1.png" alt="" class="zh_img">
-      </a>
+           </a>
           </div>
           <div class="food_name">
             <form action="">
@@ -368,24 +368,19 @@
 						this.disablevalue=false;
 					},false)
 			},
-
+      //
       fnImg(_x){
+        var arrow_down = $('.arrow_down').attr('src');
+        var arrow_up = $('.arrow_up').attr('src');
+        var show = $('.'+_x).attr('show');
 
-
-            var arrow_down = $('.arrow_down').attr('src');
-            var arrow_up = $('.arrow_up').attr('src');
-            var show = $('.'+_x).attr('show');
-
-            if(show == 1){
-                $('.'+_x).attr('src',arrow_down);
-                $('.'+_x).attr('show',2);
-            }else{
-               $('.'+_x).attr('src',arrow_up);
-               $('.'+_x).attr('show',1);
-            }
-
-
-
+        if(show == 1){
+            $('.'+_x).attr('src',arrow_down);
+            $('.'+_x).attr('show',2);
+        }else{
+           $('.'+_x).attr('src',arrow_up);
+           $('.'+_x).attr('show',1);
+        }
         //_this.style.display = 'none';
         //document.getElementById('d_i').style.display = 'none';
         //document.getElementById('d_i').style.src = '../../assets/images/down.png';
