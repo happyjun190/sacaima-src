@@ -1,9 +1,6 @@
 <template>
-  <input type='button' @click='startRecognize' value='创建扫描控件' />
-  <input type='button' @click='startScan' value='开始扫描' />
-  <input type='button' id="cancel1" value='取消扫描' />
-  <input type='button' @click='setFlash' value='开启闪光灯' />
   <div id= "bcid"></div>
+  <input type='text' id='text' style="display:none"/>
 </template>
 
 <script>
@@ -15,27 +12,19 @@
   //扩展API加载完毕后调用onPlusReady回调函数
   document.addEventListener( "plusready", onPlusReady, false );
 
+  // 扩展API加载完毕，现在可以正常调用扩展API
+  function onPlusReady() {
+    var e = document.getElementById("scan");
+    e.removeAttribute( "disabled" );
+  }
 
   var dataItem;
   export default {
 		name: "checkPublished",
 		ready(){
-      //执行登陆
-      ajax.post("checkPublished", {
-        pageSize: "3",
-        pageNum: "1",
-        marketName:"bc96731e521811e6987cf8cab858db3f"
-      }, (status,data) => {
-        if(status){
-          if(data.length!=null){
-            this.dataItem = data;
-            mui.toast("获取测试数据成功");
-          }else{
-            mui.toast("获取测试数据失败");
-          }
-        }
-        //this.disablevalue=false;
-      },false)
+      scan = new plus.barcode.Barcode('bcid');
+      scan.onmarked = onmarked;
+      scan.start();
 		},
 		components: {
 	    Scroller,Checklist,Box,XButton
@@ -46,34 +35,38 @@
 			}
 		},
 		methods: {
-      onmarked( type, result ) {
-        var text = '未知: ';
-        switch(type){
-          case plus.barcode.QR:
+        onmarked( type, result ) {
+          alert("test1");
+          var text = '未知: ';
+          switch(type){
+            case plus.barcode.QR:
             text = 'QR: ';
             break;
-          case plus.barcode.EAN13:
+            case plus.barcode.EAN13:
             text = 'EAN13: ';
             break;
-          case plus.barcode.EAN8:
+            case plus.barcode.EAN8:
             text = 'EAN8: ';
             break;
-        }
+          }
 
-      },
-      startRecognize() {//调用摄像头
-        scan = new plus.barcode.Barcode('bcid');
-        scan.onmarked = onmarked;
-      },
-      startScan() {//开始扫描
-        scan.start();
-      },
-      cancelScan() {//取消扫描
-        scan.cancel();
-      },
-      setFlash() {//开启闪光灯
-        scan.setFlash();
-      }
+          ajax.post("checkPublished", {
+						pageSize: "3",
+						pageNum: "1",
+						marketName:"bc96731e521811e6987cf8cab858db3f",
+            text:text
+					}, (status,data) => {
+						if(status){
+							if(data.length>0){
+								mui.toast("获取测试数据成功");
+							}else{
+								mui.toast("获取测试数据失败");
+							}
+						}
+						this.disablevalue=false;
+					},false)
+
+        }
 		}
 	}
 </script>

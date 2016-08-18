@@ -32,16 +32,8 @@
         <div class="ratio">
           <table>
             <tr>
-              <td>合格率：</td>
-              <td>{{detectionData.shopName}}</td>
-            </tr>
-            <tr>
-              <td>农药残留：</td>
-              <td>{{detectionData.shopName}}</td>
-            </tr>
-            <tr>
-              <td>重金属：</td>
-              <td>{{detectionData.shopName}}</td>
+              <td>{{detectionData.detectionName}}：</td>
+              <td>{{detectionData.detectionValue}}</td>
             </tr>
           </table>
         </div>
@@ -67,7 +59,7 @@
       ajax.post("checkPublished", {
         pageSize: "3",
         pageNum: "1",
-        marketName:"bc96731e521811e6987cf8cab858db3f"
+        marketName:"402883b6561760a801561762d3860140"
       }, (status,data) => {
         if(status){
           if(data.length!=null){

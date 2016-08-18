@@ -10,7 +10,7 @@
         </a>
       </div>
       <div class="food_name">
-        <a href="">{{dataItem[0].market.name}}</a>
+        <a href="">{{dataItem.market.name}}</a>
       </div>
     </header>
   </section>
@@ -21,7 +21,7 @@
       <!-- 下拉 -->
       <!-- 下拉 -->
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default" v-for="item in dataItem">
+        <div class="panel panel-default" v-for="item in dataItem.tracingSourceShopDatas">
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
               <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -40,11 +40,11 @@
               <div class="vegetables">
                 <div class="greens greens1">
                    <table>
-                    <tr>
-                      <td>{{item.goods.name}}</td>
-                      <td>{{item.goods.supplier.name}}</td>
-                      <td>{{item.goods.supplier.location}}</td>
-                      <td>{{item.weigth}}KG</td>
+                    <tr v-for="goods in item.tracingSourceGoodsDatas">
+                      <td>{{goods.goods.name}}</td>
+                      <td>{{goods.supplier.name}}</td>
+                      <td>{{goods.supplier.addr}}</td>
+                      <td>{{goods.weigth}}{{goods.goods.unit.name}}</td>
                     </tr>
                   </table>
                 </div>
@@ -77,7 +77,7 @@
         marketId:"402883b6561760a801561762d3860140"
       }, (status,data) => {
         if(status){
-          if(data.length!=null){
+          if(data!=null){
             this.dataItem = data;
             mui.toast("获取测试数据成功");
           }else{

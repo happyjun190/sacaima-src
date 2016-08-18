@@ -1,5 +1,5 @@
 //api地址配置
-var ip = "http://192.168.0.104:8080";
+var ip = "http://192.168.0.103:8080";
 let base=ip+"/ShiAnCaiMa/services"//基础地址
 const url = {
 	login:base+"aut/login",//登录
