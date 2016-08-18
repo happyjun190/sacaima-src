@@ -36,7 +36,7 @@
           </div>
           <!-- 下拉 -->
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
+            <div class="panel panel-default"  v-for="item1 in dataItem.vegetables1">
               <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -71,40 +71,6 @@
                 </div>
               </div>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                   <span>叶菜</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_b" @click="fnImg(this,'d_a')" />
-
-                    <img id="d_a" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_b')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </article>
 
@@ -114,179 +80,8 @@
             <span>肉类</span>
           </div>
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                   <span>新鲜家畜肉类</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_w" @click="fnImg(this,'d_q')" />
 
-                    <img id="d_q" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_w')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                   <span>冷冻家畜肉类</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_e" @click="fnImg(this,'d_r')" />
-
-                    <img id="d_r" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_e')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFives" aria-expanded="true" aria-controls="collapseFives">
-                   <span>新鲜家禽肉类</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_y" @click="fnImg(this,'d_t')" />
-
-                    <img id="d_t" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_y')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFives" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                   <span>冷冻家禽肉类</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_u" @click="fnImg(this,'d_o')" />
-
-                    <img id="d_o" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_u')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" @click="myFunction()">
-                   <span>新鲜鱼鲜肉类</span>
-                   <div class="img">
-                    <img src="../../assets/images/down.png" alt="." id="d_l" @click="fnImg(this,'d_k')" />
-
-                    <img id="d_k" style="display:none;" src="../../assets/images/up.png" alt="." @click="fnImg(this,'d_l')" />
-                   </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <!-- 蔬菜名 -->
-                  <div class="vegetables">
-                    <div class="greens">
-                      <div class="greens_up up">
-                        <a href="">大白菜</a>
-                        <a href="">菠菜</a>
-                        <a href="">西洋菜</a>
-                        <a href="">番薯叶</a>
-                      </div>
-                      <div class="greens_dowm dowm">
-                        <a href="">包菜</a>
-                        <a href="">油麦菜</a>
-                        <a href="">菜心</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default" v-for="item2 in dataItem.vegetables2">
               <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" @click="myFunction()">
@@ -325,7 +120,6 @@
         </article>
       </section>
     </section>
-
 </template>
 
 
@@ -345,7 +139,7 @@
 	  },
 		data() {
 			return {
-        dataItem:""
+        dataItem:{"vegetables1":[1,2],"vegetables2":[3,4,5,6]}
 			}
 		},
 		methods: {
