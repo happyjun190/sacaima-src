@@ -1,4 +1,6 @@
 <template>
+  <input type='button' @click='startRecognize' value='创建扫描控件' style="display:none"/>
+  <input type='button' @click='startScan' value='开始扫描' style="display:none"/>
   <div id= "bcid"></div>
   <input type='text' id='text' style="display:none"/>
 </template>
@@ -18,13 +20,14 @@
     e.removeAttribute( "disabled" );
   }
 
+  scan = new plus.barcode.Barcode('bcid');
+  scan.onmarked = onmarked;
+  scan.start();
+
   var dataItem;
   export default {
 		name: "checkPublished",
 		ready(){
-      scan = new plus.barcode.Barcode('bcid');
-      scan.onmarked = onmarked;
-      scan.start();
 		},
 		components: {
 	    Scroller,Checklist,Box,XButton
@@ -36,7 +39,6 @@
 		},
 		methods: {
         onmarked( type, result ) {
-          alert("test1");
           var text = '未知: ';
           switch(type){
             case plus.barcode.QR:
@@ -66,6 +68,13 @@
 						this.disablevalue=false;
 					},false)
 
+        },
+        startRecognize() {
+        	scan = new plus.barcode.Barcode('bcid');
+        	scan.onmarked = onmarked;
+        },
+        startScan() {
+        	scan.start();
         }
 		}
 	}
